@@ -2,6 +2,10 @@
 
 ## Agenda
    [Resources](#resources)  
+
+   [About Skill](#about-skill) 
+
+   [Loading Skill](#ways-to-load-skill)
    
    [Variables](#variables)  
    
@@ -23,6 +27,22 @@
     * This opens the Skill finder which is comprehensive searchable database of ALL available skill functions.
 2.  support.cadence.com  
     * This is the Cadence support site. An amazing resource for examples and manuals.
+
+## About Skill
+***
+* Skill is an interactive language. You can code directly in the CIW and it excutes immediatly. No compiling.
+* Skill is based on Lisp.
+* Skill files should have a .il extension
+* By convension all variables and functions are camelCase.
+* Cadence functions start out lowerCase
+* User functions should start UpperCase to avoid conflict.
+
+## Ways to load Skill
+***
+* You can copy and paste ( or type ) code right in the CIW!
+* You can load Skill code from a file   
+    * <code>load("/some/path/to/YourCode.il")</code>
+
 ## Variables
 ---
 * Skill isn't a strongly typed language
