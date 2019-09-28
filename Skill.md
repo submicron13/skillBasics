@@ -1,5 +1,15 @@
 # **SKILL Basics**
 
+## Agenda
+   [Resources](#resources)
+   [Variables](#variables)
+   [Operators](#operators)
+   [Important Functions](#important-functions)
+   [Conditional Statements](#conditional)
+   [Branching](#branching)
+   [Loops](#loops)
+   [Functions](#functions)
+   
 ## Resources
 1. Type <code>startFinder()</code> in the CIW.  
     * This opens the Skill finder which is comprehensive searchable database of ALL available skill functions.
