@@ -33,37 +33,21 @@ You can get the value of a variable 2 different way
 
 ## Operators
 ***
-<code>
-+ ;addition  
-
-\- ;subtraction  
-
-\* ;multiplication
-
-\/ ;division
-
-\> < >= <= ; greater than, less than, etc
-
-~> ;arrow operator
-
--> ;arrow operator
-
-% ;modulo
-
-= ;assignment 
-
-== ;equality
-
-|| ;or
-
-&& ;and
-
-!= ; not equal
-
-? ;query 
-
-?? ;query 
-</code>
+    \+ ;addition  
+    \- ;subtraction  
+    \* ;multiplication
+    \/ ;division
+    \> < >= <= ; greater than, less than, etc
+    ~> ;arrow operator
+    -> ;arrow operator
+    % ;modulo
+    = ;assignment 
+    == ;equality
+    || ;or
+    && ;and
+    != ; not equal
+    ? ;query 
+    ?? ;query 
 
 ## Important Functions
 ***
@@ -73,15 +57,12 @@ Most of skill relys on database id (dbId from now on) which is just the unique i
 2 of the most used functions in skill are:
 
 
-<code>
-;Get the cellviews database id
+    ;Get the cellviews database id
+    cv = dbGetEditCellView()
 
-cv = dbGetEditCellView()
+    ;get the dbid's of the selected objects
+    selSet = geGetSelSet()
 
-;get the dbid's of the selected objects
-
-selSet = geGetSelSet()
-</code>
 
 2 more functions to know that will come in handy later are car and cadr.
 
@@ -91,16 +72,13 @@ These functions only work with lists.
 
 ***cadr( someList ) gets the 2nd item from a list***
 
-<code>
-;Store a list of coordinates to a variable  
 
-coordPair = list( 10 10 )  
+    ;Store a list of coordinates to a variable  
+    coordPair = list( 10 10 )  
+    coordx = car( coordPair ) ;gets the 1st item from a list
+    coordy = cadr( coordPair ) ;gets the 2nd item from a list
 
-coordx = car( coordPair ) ;gets the 1st item from a list
 
-coordy = cadr( coordPair ) ;gets the 2nd item from a list
-
-</code>
 
 
 > # OK, I've got dbId's now what the heck can I do?
@@ -151,26 +129,24 @@ These either stop or allow a section of code to execute depending on the input.
 
 > **When example:**  
 
-<code>
-test = t
+    ;Set our variable
+    test = t
 
-when( test == t  
+    when( test == t  
+        ;do some stuff here
+        printf("Test was true\n")
+    )
 
-    ;do some stuff here
-    printf("Test was true\n")
-)
-</code>
 > **Unless example:**  
 
-<code>
-test = nil
+    ;Set our variable
+    test = nil
 
-unless( test == t  
+    unless( test == t  
+        ;do some stuff here
+        printf("Test was nil\n")
+    )
 
-    ;do some stuff here
-    printf("Test was nil\n")
-)
-</code>
 
 **I hate <code>unless</code> statements they confuse me.**
 ***
@@ -185,35 +161,28 @@ In an <code>if</code> statement if the input criteria evaluates to true ( <code>
 
 This can be literally read as:  
 >**IF** var is equal to Rob **THEN** print this.
+    ;Set our variable
+    var = "Rob"  
 
-<code>
-var = "Rob"  
+    if(var == "Rob" then  
+         printf("My name is Rob\n")
+    );if
 
-if(var == "Rob" then  
-
-     printf("My name is Rob\n")
-
-);if
-</code>
 
 
 > ## **If Else statement example**  
 
 This can be literally read as:  
 >**IF** var is greater than 25 **THEN** print this, **ELSE** print that.  
+    ;Set our Variable
+    var = 10  
 
+    if(var > 25 then  
+        printf("Var is greater than 25\n")
+    else  
+       printf("Var is less than 10\n")
+    );if
 
-<code>
-var = 10  
-
-if(var > 25 then  
-
-     printf("Var is greater than 25\n")
-else  
-
-    printf("Var is less than 10\n")
-);if
-</code>
 
 Case example can be found in the Cadence documents.
 
@@ -225,23 +194,16 @@ Loops are a means to repeat a section of code more then once.
 Skill has <code>for</code>, <code>foreach</code>, <code>while</code>, <code>until</code>
 
 The <code>foreach</code> is my **goto** loop in Skill. The reason for that is when I need to iterate on something in Skill it is usually a list. A <code>foreach</code> breaks the list down into each of it's individual list cells and provides that cell to the loop as a local variable.
-<code>  
 
-;get a list of the selected items  
+    ;get a list of the selected items  
+    cvInstances = geGetSelSet()   
 
-cvInstances = geGetSelSet()   
-
-foreach( inst cvInstance  
-
-    ;check inst obj to make sure its an instance 
-
-    if( inst~>objType == "inst" then  
-
-        printf("CellName %L Coordinates %L\n" inst~>cellName inst~>xy)   
-
-    );if
-);foreach
-</code>
+    foreach( inst cvInstance  
+        ;check inst obj to make sure its an instance 
+        if( inst~>objType == "inst" then  
+            printf("CellName %L Coordinates %L\n" inst~>cellName inst~>xy)   
+        );if
+    );foreach
 
 ***
 ### **Functions**
@@ -256,31 +218,23 @@ Functions are blocks of codes; similar to an instance in layout; that can be rec
 4. **ALWAYS** use a <code>let</code> statement  
     *  <code>let</code> keeps variables scoped to the function. Keeps them from becoming global.
 
-<code>
+    ;;Define out function
+    defun( RDcheckWire ( input )  
+    let( (isInputAWire)   
+        isInputAWire = nil  
 
-;;Define out function
-defun( RDcheckWire ( input )  
-
-let( (isInputAWire)   
-    isInputAWire = nil  
-    if( input~>objType == "pathSeg" then  
-
+        if( input~>objType == "pathSeg" then  
             isInputAWire = t  
+        );if
 
-);if
+        isInputAWire ;return  
+    );let  
+    );defun  
 
-isInputAWire ;return  
-);let  
-);defun  
+    ;;;;END OF FUNCTION
 
-;;;;END OF FUNCTION
+    ;;Call our function  
+    if( RDcheckWire( obj )  
+        printf("The object is a wire\n")  
+    );if
 
-;;Call our function  
-
-if( RDcheckWire( obj )  
-
-    printf("The object is a wire\n")  
-
-);if
-
-</code>
