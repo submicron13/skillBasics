@@ -12,20 +12,13 @@
 different data.  
 * **By default variables are global**
 ---
-<code>
+
     someNumber = 0  
-
     someText = "This is a string"  
-
     someList = list( "Aspen" "Cam" "Shelly" "Riley" )  
-
     bool1 = t  ; skill equivalent to true
-
     bool2 = nil  ; skill equivalent to false
-
     bool1 = "THIS IS REUSED"
-
-</code>
 
 ## Getting the value of a variable
 ***
