@@ -30,12 +30,14 @@
 
 ## About Skill
 ***
-* Skill is an interactive language. You can code directly in the CIW and it excutes immediatly. No compiling.
+* Skill is an interactive language. You can code directly in the CIW it compiles as soon as it's entered.
 * Skill is based on Lisp.
 * Skill files should have a .il extension
 * By convension all variables and functions are camelCase.
 * Cadence functions start out lowerCase
 * User functions should start UpperCase to avoid conflict.
+* Comments are prefixed with ;
+* Block comments use the /* */ convension
 
 ## Ways to load Skill
 ***
