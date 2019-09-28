@@ -160,7 +160,8 @@ In an <code>if</code> statement if the input criteria evaluates to true ( <code>
 > ## **If statement example**  
 
 This can be literally read as:  
->**IF** var is equal to Rob **THEN** print this.
+>**IF** var is equal to Rob **THEN** print this.  
+
     ;Set our variable
     var = "Rob"  
 
@@ -174,6 +175,7 @@ This can be literally read as:
 
 This can be literally read as:  
 >**IF** var is greater than 25 **THEN** print this, **ELSE** print that.  
+
     ;Set our Variable
     var = 10  
 
@@ -216,25 +218,26 @@ Functions are blocks of codes; similar to an instance in layout; that can be rec
 2. Should only perform a single task  
 3. Should be short. Long code is hard to follow.
 4. **ALWAYS** use a <code>let</code> statement  
-    *  <code>let</code> keeps variables scoped to the function. Keeps them from becoming global.
+    *  <code>let</code> keeps variables scoped to the function. Keeps them from becoming global  
+    
+    
+           ;;Define out function
+           defun( RDcheckWire ( input )  
+           let( (isInputAWire)   
+           isInputAWire = nil  
 
-    ;;Define out function
-    defun( RDcheckWire ( input )  
-    let( (isInputAWire)   
-        isInputAWire = nil  
+               if( input~>objType == "pathSeg" then  
+                  isInputAWire = t  
+               );if
 
-        if( input~>objType == "pathSeg" then  
-            isInputAWire = t  
-        );if
+            isInputAWire ;return  
+            );let  
+            );defun  
 
-        isInputAWire ;return  
-    );let  
-    );defun  
+             ;;;;END OF FUNCTION
 
-    ;;;;END OF FUNCTION
-
-    ;;Call our function  
-    if( RDcheckWire( obj )  
-        printf("The object is a wire\n")  
-    );if
+             ;;Call our function  
+             if( RDcheckWire( obj )  
+                 printf("The object is a wire\n")  
+             );if
 
