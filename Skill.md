@@ -1,14 +1,22 @@
 # **SKILL Basics**
 
 ## Agenda
-   [Resources](#resources)
-   [Variables](#variables)
-   [Operators](#operators)
-   [Important Functions](#important-functions)
-   [Conditional Statements](#conditional)
-   [Branching](#branching)
-   [Loops](#loops)
-   [Functions](#functions)
+   [Resources](#resources)  
+   
+   [Variables](#variables)  
+   
+   [Operators](#operators)  
+   
+   [Important Functions](#important-functions)  
+   
+   [Conditional Statements](#conditional)  
+   
+   [Branching](#branching)  
+   
+   [Loops](#loops)  
+   
+   [Functions](#functions)  
+   
    
 ## Resources
 1. Type <code>startFinder()</code> in the CIW.  
