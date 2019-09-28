@@ -218,26 +218,27 @@ Functions are blocks of codes; similar to an instance in layout; that can be rec
 2. Should only perform a single task  
 3. Should be short. Long code is hard to follow.
 4. **ALWAYS** use a <code>let</code> statement  
-    *  <code>let</code> keeps variables scoped to the function. Keeps them from becoming global  
-    
-    
-           ;;Define out function
-           defun( RDcheckWire ( input )  
-           let( (isInputAWire)   
-           isInputAWire = nil  
+    *  <code>let</code> keeps variables scoped to the function. Keeps them from becoming global 
 
-               if( input~>objType == "pathSeg" then  
-                  isInputAWire = t  
-               );if
+**Function Example:** 
 
-            isInputAWire ;return  
-            );let  
-            );defun  
+     ;;Define out function
+     defun( RDcheckWire ( input )  
+     let( (isInputAWire)   
+     isInputAWire = nil  
 
-             ;;;;END OF FUNCTION
+         if( input~>objType == "pathSeg" then  
+            isInputAWire = t  
+         );if
 
-             ;;Call our function  
-             if( RDcheckWire( obj )  
-                 printf("The object is a wire\n")  
-             );if
+      isInputAWire ;return  
+      );let  
+      );defun  
+
+       ;;;;END OF FUNCTION
+
+       ;;Call our function  
+       if( RDcheckWire( obj )  
+           printf("The object is a wire\n")  
+       );if
 
